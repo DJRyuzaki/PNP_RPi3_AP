@@ -10,13 +10,13 @@ touch $x
 sudo rm -rf /etc/default/udhcpd
 sudo mkdir /etc/default
 sudo touch /etc/default/udhcpd
-echo "start 192.168.42.2 " >>   $x
-echo "end 192.168.42.20" >> $x
+echo "start 10.100.0.2 " >>   $x
+echo "end 10.100.0.20" >> $x
 echo "interface wlan0" >> $x
 echo "remaining yes" >> $x
-echo "opt dns 8.8.8.8 4.2.2.2" >> $x
+echo "opt dns 1.1.1.1 8.8.8.8" >> $x
 echo "opt subnet 255.255.255.0" >> $x
-echo "opt router 192.168.42.1" >> $x
+echo "opt router 10.100.0.1" >> $x
 echo "opt lease 864000" >> $x
 sudo mv  $x /etc/udhcpd.conf
 touch $x
@@ -60,7 +60,7 @@ echo "auto eth0" >> $x
 echo "iface eth0 inet dhcp" >> $x
 echo "" >> $x
 echo "iface wlan0 inet static" >> $x
-echo "    address 192.168.42.1" >> $x
+echo "    address 10.100.0.1" >> $x
 echo "    netmask 255.255.255.0" >> $x
 echo "    wireless-power off" >> $x
 echo "" >> $x
@@ -92,7 +92,7 @@ echo "hw_mode=g" >> $x
 echo "channel=6" >> $x
 echo "macaddr_acl=0" >> $x
 echo "auth_algs=1" >> $x
-echo "ignore_broadcast_ssid=0" >> $x
+echo "ignore_broadcast_ssid=1" >> $x
 echo  "wpa=2" >> $x
 echo "wpa_passphrase=pnptutorials" >> $x
 echo "wpa_key_mgmt=WPA-PSK" >> $x
